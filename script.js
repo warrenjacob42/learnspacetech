@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 let modelSrc;
                 switch (true) {
                     case index === 3: // Neil Armstrong Spacesuit
-                        modelSrc = '/models/neilArmstrong-2.glb';
+                        modelSrc = './models/neilArmstrong-2.glb';
                         const modelContent = `
                             <div class="content-wrapper">
                                 <h2>3D Model Viewer</h2>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         break;
 
                     case index === 7: // Command Module
-                        modelSrc = '/models/apollo_exterior-150k-4096-2.glb';
+                        modelSrc = './models/apollo_exterior-150k-4096-2.glb';
                         const basicModelContent = `
                             <div class="content-wrapper">
                                 <h2>3D Model Viewer</h2>
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         break;
 
                     case index === 11: // Space Shuttle
-                        modelSrc = '/models/Orbiter_Space_Shuttle_OV-103_Discovery-150k-4096-2.glb';
+                        modelSrc = './models/Orbiter_Space_Shuttle_OV-103_Discovery-150k-4096-2.glb';
                         const basicModelContent2 = `
                             <div class="content-wrapper">
                                 <h2>3D Model Viewer</h2>
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         break;
 
                     default:
-                        modelSrc = '/models/defaultModel.glb';
+                        modelSrc = './models/defaultModel.glb';
                 }
             } else {
                 // Create custom descriptions for each image
