@@ -177,7 +177,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #bbb;
+    border: 5px solid #bbb;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
