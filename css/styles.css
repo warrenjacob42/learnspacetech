@@ -5,11 +5,18 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%; /* Ensure the body takes the full height of the viewport */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
 body {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #dbdbdb;
     background-color: #09090e;
+    margin: 0; /* Remove default margin */
 }
 
 /* Introduction Section */
@@ -124,7 +131,8 @@ body {
 /* Hero Section */
 .hero {
     background: #10132e;
-    height: 300px;
+    height: auto; /* Change height to auto to accommodate padding */
+    padding: 60px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,8 +146,12 @@ body {
 
 /* Content Wrapper */
 .content-wrapper {
-    padding-left: 50px;
-    padding-right: 50px;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    width: 100%; /* Full width of the parent */
+    padding: 1rem; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in width calculations */
 }
 
 /* Scrollable Section */
@@ -168,6 +180,7 @@ body {
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
 }
 
 .card img {
@@ -197,4 +210,184 @@ body {
         flex: 0 0 100%;
         max-width: 300px;
     }
+}
+
+/* Popup Styles */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    position: relative;
+    background: #1a1c3a;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    z-index: 2001;
+}
+
+.close-button:hover {
+    color: #ff4444;
+}
+
+.popup-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Make cards clickable */
+.card {
+    cursor: pointer;
+    /* ... existing card styles ... */
+}
+
+/* If the h3 is inside a specific class */
+h3 {
+    color: #10132e; /* Dark color */
+}
+
+/* Update model container styles */
+.model-container {
+    width: 995px;  /* Set fixed width */
+    max-width: 100%;  /* Ensure responsiveness */
+    background: #1a1c3a;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem auto;  /* Center the container */
+}
+
+model-viewer {
+    width: 100%;
+    height: 800px;
+    background-color: #09090e;
+}
+
+/* Update popup content for model viewer */
+.popup-content.model-viewer {
+    width: 95%;
+    max-width: 1600px;
+    background: #1a1c3a;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center content horizontally */
+}
+
+/* Ensure content wrapper doesn't restrict width */
+.popup-content.model-viewer .content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Add responsive behavior */
+@media (max-width: 1024px) {
+    .model-container {
+        width: 100%;  /* Full width on smaller screens */
+    }
+}
+
+.HotspotAnnotation {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 0.8);
+    display: block;
+    font-family: Futura, Helvetica Neue, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    left: calc(100% + 1em);
+    max-width: 400px;
+    padding: 0.5em 1em;
+    position: absolute;
+    top: 50%;
+    width: max-content;
+}
+
+.site-footer {
+    background-color: #10132e;
+    color: #dbdbdb;
+    text-align: center;
+    padding: 1rem;
+    position: relative; /* Change to relative */
+    margin-top: auto; /* Push footer to the bottom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-controls button {
+    background-color: #5a65ff;
+    color: #dbdbdb;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.audio-controls button:hover {
+    background-color: #999fe6;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.audio-player-container {
+    /* background-color: #10132e; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    
+}
+
+.audio-player-container button {
+    background-color: #0068d8;
+    color: #dbdbdb;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 22px;
+    transition: background-color 0.3s ease;
+}
+
+.audio-player-container button:hover {
+    background-color: #0056b3;
 }

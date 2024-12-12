@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
     <!-- Responsive Navigation -->
@@ -50,7 +51,7 @@
                     <img src="images/armstrong_suit 1-snapshot.png" alt="Neil Armstrong's Spacesuit">
                 </div>
                 <div class="card">
-                    <img src="images/armstrong_suit 2-snapshot.png" alt="Neil Armstrong's Spacesuit 2">
+                    <img src="images/armstrong_suit 2-snapshot.png" alt="Neil Armstrong's Spacesuit">
                 </div>
                 <div class="card">
                     <img src="images/armstrong_suit 3-snapshot.png" alt="Neil Armstrong's Spacesuit">
@@ -108,7 +109,37 @@
         </div>
     </section>
 
+    <div class="audio-player-container">
+        <button id="audioPlayButton" onclick="toggleAudio()">
+            🎵 🎙️🚀Play conversation to learn more about Space!
+        </button>
+        <audio id="backgroundAudio" style="display:none;">
+            <source src="/audio/audio.wav" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <footer class="site-footer">
+        <div class="copyright">
+            @learnspacetech
+        </div>
+    </footer>
+
     <script src="script.js"></script>
+    <script>
+        function toggleAudio() {
+            const audio = document.getElementById('backgroundAudio');
+            const button = document.getElementById('audioPlayButton');
+            
+            if (audio.paused) {
+                audio.play();
+                button.textContent = '⏸️ Pause Conversation';
+            } else {
+                audio.pause();
+                button.textContent = '▶️ Play Conversation';
+            }
+        }
+    </script>
 </body>
 </html>
 <style>
