@@ -9,6 +9,7 @@ html, body {
     height: 100%; /* Ensure the body takes the full height of the viewport */
     display: flex;
     flex-direction: column; /* Stack children vertically */
+    margin: 5px;
 }
 
 body {
